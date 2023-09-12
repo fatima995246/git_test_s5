@@ -9,7 +9,6 @@ class sebhaScreen extends StatefulWidget {
 
 class _sebhaScreenState extends State<sebhaScreen> {
   double turns = 0.0;
-
   int counter = 0;
 
   @override
@@ -25,7 +24,7 @@ class _sebhaScreenState extends State<sebhaScreen> {
               child: AnimatedRotation(
                 turns: turns,
                 duration: Duration(seconds: 1),
-                child: Image.asset('assets/image/sebha.png'),
+                child: Image.asset('assets/image/body_sebha_logo.png'),
               ),
             ),
             ElevatedButton(
