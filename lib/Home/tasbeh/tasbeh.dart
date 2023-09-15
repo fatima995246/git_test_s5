@@ -32,6 +32,7 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
           case 4:
             displayText = 'الله أكبر';
             counter = 0;
+            textChangeCount = 0;
             break;
         }
       }

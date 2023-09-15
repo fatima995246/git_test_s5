@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class itemSurahDetails extends StatelessWidget {
+class itemHadethDetails extends StatelessWidget {
   String content;
-  int index;
-  itemSurahDetails({required this.content, required this.index});
+
+  itemHadethDetails({required this.content});
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      '$content {${index + 1}}',
+      content,
       style: Theme.of(context).textTheme.titleSmall,
       textAlign: TextAlign.center,
       textDirection: TextDirection.rtl,
