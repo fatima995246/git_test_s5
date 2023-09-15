@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:git_s5/Home/hadeth/hadeth.dart';
 import 'package:git_s5/Home/quran/quran_tab.dart';
 import 'package:git_s5/Home/radio/radio.dart';
@@ -26,7 +27,7 @@ class _homescreenState extends State<homescreen> {
       Scaffold(
         appBar: AppBar(
           title: Text(
-            'Islami',
+            AppLocalizations.of(context)!.app_title,
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
@@ -41,18 +42,21 @@ class _homescreenState extends State<homescreen> {
               },
               items: [
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/icon_quran.png')),
-                    label: 'Quran'),
+                    icon: const ImageIcon(
+                        AssetImage('assets/images/icon_quran.png')),
+                    label: AppLocalizations.of(context)!.quran),
                 BottomNavigationBarItem(
-                    icon:
-                        ImageIcon(AssetImage('assets/images/icon_hadeth.png')),
-                    label: 'Hadeth'),
+                    icon: const ImageIcon(
+                        AssetImage('assets/images/icon_hadeth.png')),
+                    label: AppLocalizations.of(context)!.hadeth),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/icon_sebha.png')),
-                    label: 'Tasbeh'),
+                    icon: const ImageIcon(
+                        AssetImage('assets/images/icon_sebha.png')),
+                    label: AppLocalizations.of(context)!.sebha),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),
-                    label: 'Radio')
+                    icon: const ImageIcon(
+                        AssetImage('assets/images/icon_radio.png')),
+                    label: AppLocalizations.of(context)!.radio)
               ]),
         ),
         body: tabs[selectedIndex],
