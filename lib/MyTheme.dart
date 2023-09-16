@@ -21,7 +21,7 @@ class MyTheme {
           titleMedium: TextStyle(
               fontSize: 25, fontWeight: FontWeight.w600, color: blackColor),
           titleSmall: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.w400, color: blackColor)),
+              fontSize: 25, fontWeight: FontWeight.w400, color: yelloColor)),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: blackColor,
           unselectedItemColor: WhiteColor,

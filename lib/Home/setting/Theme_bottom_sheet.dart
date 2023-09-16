@@ -63,8 +63,11 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(text, style: Theme.of(context).textTheme.titleMedium),
-          Icon(Icons.check)
+          Text(text,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: Theme.of(context).primaryColor)),
         ],
       ),
     );

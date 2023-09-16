@@ -64,16 +64,25 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
               ),
               Positioned.fill(
                 top: 70, // Adjust the value to control the overlap
-                child: AnimatedRotation(
-                  turns: turns,
-                  duration: Duration(seconds: 1),
-                  child: provider.isDarkMode()
-                      ? Image.asset(
-                          'assets/images/body_sebha_dark.png', // Replace with your photo asset path
-                        )
-                      : Image.asset(
-                          'assets/images/body_sebha_logo.png', // Replace with your photo asset path
-                        ),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      turns += 1 / 33;
+                      counter++;
+                      incrementCounter();
+                    });
+                  },
+                  child: AnimatedRotation(
+                    turns: turns,
+                    duration: Duration(seconds: 1),
+                    child: provider.isDarkMode()
+                        ? Image.asset(
+                            'assets/images/body_sebha_dark.png', // Replace with your photo asset path
+                          )
+                        : Image.asset(
+                            'assets/images/body_sebha_logo.png', // Replace with your photo asset path
+                          ),
+                  ),
                 ),
               ),
             ],
@@ -98,13 +107,7 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      turns += 1 / 33;
-                      counter++;
-                      incrementCounter();
-                    });
-                  },
+                  onPressed: () {},
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                         provider.isDarkMode()
@@ -129,12 +132,13 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
                             : MyTheme.blackColor),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                  padding: EdgeInsets.all(12),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                       color: provider.isDarkMode()
                           ? MyTheme.yelloColor

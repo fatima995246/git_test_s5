@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:git_s5/providers/app_config_provider.dart';
@@ -63,8 +62,13 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(text, style: Theme.of(context).textTheme.titleMedium),
-          Icon(Icons.check)
+          Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: Theme.of(context).primaryColor),
+          )
         ],
       ),
     );
