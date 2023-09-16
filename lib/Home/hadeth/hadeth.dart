@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'item_hadeth_name.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../../MyTheme.dart';
+import '../../providers/app_config_provider.dart';
+import 'item_hadeth_name.dart';
 
 class Hadeth_tab extends StatefulWidget {
   @override
@@ -10,11 +13,12 @@ class Hadeth_tab extends StatefulWidget {
 }
 
 class _Hadeth_tabState extends State<Hadeth_tab> {
-
   List <Hadeth> ahadethList = [];
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     if (ahadethList.isEmpty) {
       loadHadethFile();
     }
@@ -22,12 +26,11 @@ class _Hadeth_tabState extends State<Hadeth_tab> {
       child: Column(
         children: [
           Expanded(
-              flex: 1,
-              child: Image.asset('assets/images/ahadeth_image.png')),
+              flex: 1, child: Image.asset('assets/images/ahadeth_image.png')),
           Divider(
-            color: Theme
-                .of(context)
-                .primaryColor,
+            color: provider.isDarkMode()
+                ? MyTheme.yelloColor
+                : Theme.of(context).primaryColor,
             thickness: 3,
           ),
           Text(
@@ -38,9 +41,9 @@ class _Hadeth_tabState extends State<Hadeth_tab> {
                 .titleMedium,
           ),
           Divider(
-            color: Theme
-                .of(context)
-                .primaryColor,
+            color: provider.isDarkMode()
+                ? MyTheme.yelloColor
+                : Theme.of(context).primaryColor,
             thickness: 3,
           ),
           ahadethList.isEmpty ?
@@ -55,11 +58,11 @@ class _Hadeth_tabState extends State<Hadeth_tab> {
             child: ListView.separated(
               separatorBuilder: (context, index) {
                 return Divider(
-                  color: Theme
-                      .of(context)
-                      .primaryColor,
-                  thickness: 2,
-                );
+                        color: provider.isDarkMode()
+                            ? MyTheme.yelloColor
+                            : Theme.of(context).primaryColor,
+                        thickness: 3,
+                      );
               },
               itemBuilder: (context, index) {
                 return itemHadethName(hadeth: ahadethList[index],);
