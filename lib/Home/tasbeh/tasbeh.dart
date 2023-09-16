@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:git_s5/MyTheme.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/app_config_provider.dart';
 
 class Tasbeh_tab extends StatefulWidget {
   @override
@@ -41,6 +44,7 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -50,18 +54,26 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
               Positioned.fill(
                 bottom: 201,
                 left: 37,
-                child: Image.asset(
-                  'assets/images/head_sebha_logo.png',
-                ),
+                child: provider.isDarkMode()
+                    ? Image.asset(
+                        'assets/images/head_sebha_dark.png',
+                      )
+                    : Image.asset(
+                        'assets/images/head_sebha_logo.png',
+                      ),
               ),
               Positioned.fill(
                 top: 70, // Adjust the value to control the overlap
                 child: AnimatedRotation(
                   turns: turns,
                   duration: Duration(seconds: 1),
-                  child: Image.asset(
-                    'assets/images/body_sebha_logo.png', // Replace with your photo asset path
-                  ),
+                  child: provider.isDarkMode()
+                      ? Image.asset(
+                          'assets/images/body_sebha_dark.png', // Replace with your photo asset path
+                        )
+                      : Image.asset(
+                          'assets/images/body_sebha_logo.png', // Replace with your photo asset path
+                        ),
                 ),
               ),
             ],
@@ -76,7 +88,11 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
               children: [
                 Text(
                   'عدد التسبيحات',
-                  style: TextStyle(fontSize: 25, color: MyTheme.blackColore),
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: provider.isDarkMode()
+                          ? MyTheme.WhiteColor
+                          : MyTheme.blackColor),
                 ),
                 SizedBox(
                   height: 20,
@@ -90,8 +106,14 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
                     });
                   },
                   style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(MyTheme.primaryLight),
+                    backgroundColor: MaterialStateProperty.all(
+                        provider.isDarkMode()
+                            ? MyTheme.primaryDark
+                            : MyTheme.primaryLight),
+                    foregroundColor: MaterialStateProperty.all(
+                        provider.isDarkMode()
+                            ? MyTheme.WhiteColor
+                            : MyTheme.blackColor),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
@@ -100,7 +122,11 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
                   ),
                   child: Text(
                     '$counter',
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: provider.isDarkMode()
+                            ? MyTheme.WhiteColor
+                            : MyTheme.blackColor),
                   ),
                 ),
                 SizedBox(
@@ -110,11 +136,17 @@ class _Tasbeh_tabState extends State<Tasbeh_tab> {
                   margin: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      color: MyTheme.primaryLight,
+                      color: provider.isDarkMode()
+                          ? MyTheme.yelloColor
+                          : MyTheme.primaryLight,
                       borderRadius: BorderRadius.circular(30)),
                   child: Text(
                     displayText,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: provider.isDarkMode()
+                            ? MyTheme.blackColor
+                            : MyTheme.WhiteColor),
                   ),
                 )
               ],
