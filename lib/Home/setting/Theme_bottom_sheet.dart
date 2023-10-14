@@ -17,7 +17,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       children: [
         InkWell(
           onTap: () {
-            provider.changeTheme(ThemeMode.dark);
+            provider.changeTheme('dark');
           },
           //dark
           child: provider.isDarkMode()
@@ -26,7 +26,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
         ),
         InkWell(
             onTap: () {
-              provider.changeTheme(ThemeMode.light);
+              provider.changeTheme('light');
             },
             //light
             child: provider.isDarkMode()

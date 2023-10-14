@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import '../../providers/app_config_provider.dart';
 
 class Tasbeh_tab extends StatefulWidget {
+  static const String routeName = 'Tasbeh';
+
   @override
   State<Tasbeh_tab> createState() => _Tasbeh_tabState();
 }
